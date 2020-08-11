@@ -6,19 +6,11 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
-
-class CommonUser:
-
-    def __init__(self, **kwargs):
-        self.username = kwargs.get('name')
-        self.password_hash = kwargs.get('password')
-        self.id = kwargs.get('id')
-
 # concret class
 class SysUser(Base):
     __tablename__ = 'sys_user'
     # set id column as primary key
-    id = Column(Integer, primary_key=True)
+    id = Column(String(32), primary_key=True)
     # specify name to name column
     name = Column(String(32))
     password = Column(String(32))
@@ -42,15 +34,19 @@ class SysUserSQL:
         Session = sessionmaker(bind=self._engine)
         session = Session()
         # fetch only one record use where
-        u = session.query(SysUser).filter(SysUser.id == user_id).one()
-        print('name -->', u)
-        # fetch all
-        # uall = session.query(SysUser).all()
-        # for user_re in uall:
-        #    print('name -->', user_re.name)
-        session.commit()
-        session.close()
-        return u
+        try:
+            u = session.query(SysUser).filter(SysUser.id == user_id).one()
+            user = {'id':u.id, 'name':u.name, 'password':u.password}
+            # fetch all
+            # uall = session.query(SysUser).all()
+            # for user_re in uall:
+            #    print('name -->', user_re.name)
+            session.commit()
+            session.close()
+        except Exception as e:
+            print('Exception:',e)
+            return None
+        return user
 
     def query_user_by_name(self, user_name):
         Session = sessionmaker(bind=self._engine)
@@ -58,7 +54,7 @@ class SysUserSQL:
         # fetch only one record use where
         try:
             u = session.query(SysUser).filter(SysUser.name == user_name).one()
-            user = CommonUser(id=u.id, name=u.name, password=u.password)
+            user = {'id':u.id, 'name':u.name, 'password':u.password}
         except Exception as e:
             print('execption',e)
             return None

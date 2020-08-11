@@ -21,9 +21,11 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login' # view endpoint 
 
+
 @login_manager.user_loader # define function for getting user
 def load_user(user_id):
     return User.get(user_id)
+
 
 @app.route('/')
 @login_required
@@ -38,12 +40,11 @@ def login():
     if form.validate_on_submit():
         user_name = form.username.data
         password = form.password.data
-        user_info = get_user(user_name) # get user data from db
+        user = get_user(user_name) # get user data from db
 
-        if user_info is None:
+        if user is None:
             emsg = 'error password or username'
         else:
-            user = User(user_info)
             if user.verify_password(password):
                 login_user(user, remember=True) # create session
                 return redirect(request.args.get('next') or url_for('index'))
@@ -65,14 +66,8 @@ def register():
         if user_info is not None:
             emsg = 'username exist'
         else:
-            user = User(name=user_name, password=password)
-            create_result = create_user(user)
-            if create_result:
-                login_user(user, remember=True) # create session
-                return redirect(request.args.get('next') or url_for('index'))
-            else:
-                emsg = 'register failed'
-
+            create_user(user_name=user_name, password=password)
+            return redirect(url_for('index'))
     return render_template('register.html', form=form, emsg=emsg)
 
 
@@ -82,7 +77,7 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-# 登出视图不需要模板，直接跳转到登录页，实际项目中可以增加一个登出页，展示些有趣的东西
 
+# 登出视图不需要模板，直接跳转到登录页，实际项目中可以增加一个登出页，展示些有趣的东西
 if __name__ == '__main__':
     app.run()
