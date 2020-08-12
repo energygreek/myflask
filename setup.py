@@ -22,6 +22,7 @@ setup(name='myflask',
             'Werkzeug==1.0.1',
             'WTForms==2.3.1'
           ],
+      py_modules=['myflask'],
       packages=find_packages(),
       zip_safe=False,
       include_package_data=True,
