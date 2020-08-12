@@ -1,6 +1,6 @@
 from setuptools import setup,find_packages
-import pathlib
-import pkg_resources
+#import pathlib
+#import pkg_resources
 #import os
 #import sys
 
@@ -22,7 +22,7 @@ setup(name='myflask',
             'Werkzeug==1.0.1',
             'WTForms==2.3.1'
           ],
-      packages=['myflask'],
+      packages=find_packages(),
       zip_safe=False,
       include_package_data=True,
       )
