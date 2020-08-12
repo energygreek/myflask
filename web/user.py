@@ -1,6 +1,6 @@
 from flask_login import UserMixin # base class of user
 from werkzeug.security import check_password_hash
-from user_database import SysUserSQL
+from .user_database import SysUserSQL
 
 
 class User(UserMixin):

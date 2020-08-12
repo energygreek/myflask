@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 import uuid
-from user_database import SysUser, SysUserSQL
-from user import User
+from .user_database import SysUser, SysUserSQL
+from .user import User
 
 
 # ...
