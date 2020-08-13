@@ -1,4 +1,4 @@
-from setuptools import setup,find_packages,find_namespace_packages
+from setuptools import setup,find_namespace_packages
 #import pathlib
 #import pkg_resources
 #import os
@@ -27,6 +27,7 @@ setup(name='myflask',
                    ]
             },
       package_data = {
+        '': ['*.db'],
         '': ['*.html'],
         '': ['*.css'],
         '': ['*.js'],

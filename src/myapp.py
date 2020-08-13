@@ -30,6 +30,7 @@ def load_user(user_id):
 @app.route('/')
 @login_required
 def index():
+    print('index')
     return render_template('index.html',username=current_user.username)
 
 
