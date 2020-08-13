@@ -1,4 +1,4 @@
-from setuptools import setup,find_packages
+from setuptools import setup,find_packages,find_namespace_packages
 #import pathlib
 #import pkg_resources
 #import os
@@ -17,13 +17,24 @@ setup(name='myflask',
             'Bootstrap-Flask==1.4',
             'Flask==1.1.2',
             'Flask-Login==0.5.0',
-            'Jinja2==3.0.0a1',
             'SQLAlchemy==1.3.18',
             'Werkzeug==1.0.1',
             'WTForms==2.3.1'
           ],
-      py_modules=['myflask'],
-      packages=find_packages(),
+      entry_points={
+             'console_scripts':[
+                   'myflask=run:main'
+                   ]
+            },
+      package_data = {
+        '': ['*.html'],
+        '': ['*.css'],
+        '': ['*.js'],
+        '': ['static/*'],
+        '': ['templates/*'],
+      },
+      py_modules=['run'],
+      packages=find_namespace_packages(),
       zip_safe=False,
       include_package_data=True,
       )

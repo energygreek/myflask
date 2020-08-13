@@ -2,9 +2,9 @@ from flask import Flask,render_template, redirect, request, url_for
 from flask_login import LoginManager,current_user, login_required,\
     logout_user, login_user
 
-from web.user import User
-from web.loginform import LoginForm
-from web.usermanager import create_user, get_user
+from src.user import User
+from src.loginform import LoginForm
+from src.usermanager import create_user, get_user
 
 from flask_bootstrap import Bootstrap
 
@@ -19,7 +19,7 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login' # view endpoint 
+login_manager.login_view = 'login' # view endpoint
 
 
 @login_manager.user_loader # define function for getting user
@@ -76,8 +76,3 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
-
-
-# 登出视图不需要模板，直接跳转到登录页，实际项目中可以增加一个登出页，展示些有趣的东西
-if __name__ == '__main__':
-    app.run()
