@@ -1,0 +1,10 @@
+[Unit]
+Description=myflask
+
+[Service]
+ExecStart=/usr/bin/python3  /usr/share/nginx/html/myflask/myflask.py
+User=boss
+Group=nobody
+
+[Install]
+WantedBy=multi-user.target
