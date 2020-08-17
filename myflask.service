@@ -1,13 +1,12 @@
-[Unit]
-Description=myflask
-
-[Service]
-ExecStart=/usr/bin/python3  /usr/share/nginx/html/myflask/myflask.py
-User=boss
-Group=www-data
-WorkingDirectory=/home/boss/myflask
-Environment="PATH=/home/boss/myflask/.venv/bin"
-ExecStart=/home/boss/myflask/.venv/bin/uwsgi --ini myproject.ini
-
-[Install]
-WantedBy=multi-user.target
+[Unit]                                                                                                                                                                                                                                        
+Description=myflask                                                                                                                                                                                                                           
+                                                                                                                                                                                                                                              
+[Service]                                                                                                                                                                                                                                     
+User=gitlab-ce                                                                                                                                                                                                                                
+Group=nginx                                                                                                                                                                                                                                   
+WorkingDirectory=/home/gitlab-ce/myflask                                                                                                                                                                                                      
+Environment="PATH=/home/gitlab-ce/myflask/.venv/bin"                                                                                                                                                                                          
+ExecStart=/home/gitlab-ce/myflask/.venv/bin/uwsgi --ini uwsgi.ini                                                                                                                                                                         
+                                                                                                                                                                                                                                              
+[Install]                                                                                                                                                                                                                                     
+WantedBy=multi-user.target      

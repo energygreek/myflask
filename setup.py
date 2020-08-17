@@ -23,18 +23,17 @@ setup(name='myflask',
           ],
       entry_points={
              'console_scripts':[
-                   'myflask=run:main'
+                   'myflask=wsgi:main'
                    ]
             },
       package_data = {
-        '': ['*.db'],
         '': ['*.html'],
         '': ['*.css'],
         '': ['*.js'],
         '': ['static/*'],
         '': ['templates/*'],
       },
-      py_modules=['run'],
+      py_modules=['wsgi'],
       packages=find_namespace_packages(),
       zip_safe=False,
       include_package_data=True,
