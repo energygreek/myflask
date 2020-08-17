@@ -2,9 +2,9 @@ from flask import Flask,render_template, redirect, request, url_for
 from flask_login import LoginManager,current_user, login_required,\
     logout_user, login_user
 
-from src.user import User
-from src.loginform import LoginForm
-from src.usermanager import create_user, get_user
+from src.myflask.user import User
+from src.myflask.loginform import LoginForm
+from src.myflask.usermanager import create_user, get_user
 
 from flask_bootstrap import Bootstrap
 

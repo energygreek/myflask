@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-from flup.server.fcgi import WSGIServer
-from src.myapp import app
+from src.myflask.blueprints.myapp import app
 
 if __name__ == '__main__':
     # for apache
