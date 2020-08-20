@@ -1,3 +1,4 @@
+from flask import current_app
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
@@ -19,7 +20,8 @@ class SysUser(Base):
 class SysUserSQL:
 
     def __init__(self):
-        self._engine = create_engine('sqlite:///foo.db', echo=True)
+        self._engine = create_engine(
+            current_app.config['SQLALCHEMY_USER_DATABASE_URI'], echo=True)
         # create table
         Base.metadata.create_all(self._engine)
 

@@ -24,9 +24,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <!-- 利用宏 render_nav_item 创建菜单 -->
-                    {{ render_nav_item('index', '首页', use_li=True) }}
-                    {{ render_nav_item('login', '登录', use_li=True) }}
-                    {{ render_nav_item('register', '注册', use_li=True) }}
+                    {{ render_nav_item('home.index_handler', '首页', use_li=True) }}
+                    {{ render_nav_item('action.login', '登录', use_li=True) }}
+                    {{ render_nav_item('action.register', '注册', use_li=True) }}
                 </ul>
             </div>
         </nav>
