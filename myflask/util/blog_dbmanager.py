@@ -26,53 +26,58 @@ class BlogSQL:
         Base.metadata.create_all(self._engine)
         self._session_maker = sessionmaker(bind=self._engine)
 
-
     def add_user(self, blog: Blog):
         try:
             session = self._session_maker()
             session.add(blog)
             session.commit()
             session.close()
-
+        except Exception as e:
+            print(e)
+            return None
         # exception
-        print('Exception occur')
         return None
 
-    def query_user_by_id(self, blog_id):
+    def query_by_id(self, blog_id):
         # fetch only one record use where
-        with self._session_maker() as session:
+        try:
+            session = self._session_maker()
             u = session.query(Blog).filter(Blog.blog_id == blog_id).one()
-            user = {'id':u.id, 'name':u.name, 'password':u.password}
+            blog = {'blog_id':u.blog_id, 'title':u.title, 'content':u.content}
 
             session.commit()
             session.close()
-            return user
-        # exception
-        print('Exception occur')
-        return None
+            return blog
+        except Exception as e:
+            print(e)
+            return None
 
-    def query_user_by_title(self, title):
-        with self._session_maker() as session:
+    def query_by_title(self, title):
+
+        try:
+            session = self._session_maker()
             u = session.query(Blog).filter(Blog.title == title).one()
             blog = {'blog_id':u.blog_id, 'title':u.title, 'content':u.content}
 
             session.commit()
             session.close()
             return blog
-        # exception
-        print('Exception occur')
-        return None
+        except Exception as e:
+            print(e)
+            return None
 
     def delete_blog(self, blog_id):
-        with self._session_maker() as session:
+
+        try:
+            session = self._session_maker()
             u = session.query(Blog).filter(Blog.id == blog_id).one()
             session.delete(u)
             session.commit()
             session.close()
 
-        # exception
-        print('Exception occur')
-        return None
+        except Exception as e:
+            print(e)
+            return None
 
 # su = SysUser(id=2,name='John',password='123')
 # add_user(su)

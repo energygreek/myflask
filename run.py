@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
-
-from myflask.blueprints.index.index import home
-from myflask.blueprints.action.action import action
 from myflask.util.user import User
 from configs import configs
+
+from myflask.blueprints.index.index import home
+from myflask.blueprints.action.index import action
+from myflask.blueprints.blog.index import blog
 
 app = Flask(__name__)
 
@@ -20,6 +21,7 @@ login_manager.login_view = 'action.login' # view endpoint
 app.register_blueprint(home, url_prefix="/")
 app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(action, url_prefix="/action")
+app.register_blueprint(blog, url_prefix="/blog")
 
 
 @login_manager.user_loader # define function for getting user
