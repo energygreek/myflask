@@ -7,5 +7,5 @@ home = Blueprint("home", __name__, template_folder="templates")
 @home.route('/')
 @login_required
 def index():
-    print('index')
-    return render_template('index.html',username=current_user.username)
+    print('home')
+    return render_template('home.html',username=current_user.username)

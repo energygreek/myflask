@@ -1,0 +1,42 @@
+
+{% extends "base.html" %} <!-- 继承基础模板 -->
+
+{% block content %} <!-- 替换页面内容 -->
+<h1> Hello Flask Bootstrap </h1>
+
+<h1>Welcome {{ username }} ! </h1>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<div id="container" style="width:100%; height:400px;"></div>
+<script>
+
+	document.addEventListener('DOMContentLoaded', function () {
+        var myChart = Highcharts.chart('container', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Fruit Consumption'
+            },
+            xAxis: {
+                categories: ['Apples', 'Bananas', 'Oranges']
+            },
+            yAxis: {
+                title: {
+                    text: 'Fruit eaten'
+                }
+            },
+            series: [{
+                name: 'Jane',
+                data: [1, 0, 4]
+            }, {
+                name: 'John',
+                data: [5, 7, 3]
+            }]
+        });
+    });
+
+</script>
+<a href="{{ url_for('action.logout') }}">Logout</a>
+{% endblock %}
+

@@ -4,7 +4,8 @@ from flask_login import LoginManager
 from myflask.util.user import User
 from configs import configs
 
-from myflask.blueprints.index.index import home
+from myflask.blueprints.index import index
+from myflask.blueprints.home.index import home
 from myflask.blueprints.action.index import action
 from myflask.blueprints.blog.index import blog
 
@@ -18,7 +19,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'action.login' # view endpoint
 
 # 注册蓝图
-app.register_blueprint(home, url_prefix="/")
+app.register_blueprint(index, url_prefix="/")
 app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(action, url_prefix="/action")
 app.register_blueprint(blog, url_prefix="/blog")
