@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Encode Sans Condensed ExtraLight'), local('EncodeSansCondensed-ExtraLight'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDmmbAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiTg7qakXN4ln9j1qrJ) format('truetype');
+}
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Encode Sans Condensed Regular'), local('EncodeSansCondensed-Regular'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDl2bAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiYmNKRgWCp1pc) format('truetype');
+}
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Encode Sans Condensed Medium'), local('EncodeSansCondensed-Medium'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDmmbAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiTlLrdkXN4ln9j1qrJ) format('truetype');
+}
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Encode Sans Condensed SemiBold'), local('EncodeSansCondensed-SemiBold'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDmmbAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiTh7rZkXN4ln9j1qrJ) format('truetype');
+}
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Encode Sans Condensed Bold'), local('EncodeSansCondensed-Bold'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDmmbAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiTgLrVkXN4ln9j1qrJ) format('truetype');
+}
+@font-face {
+  font-family: 'Encode Sans Condensed';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Encode Sans Condensed Black'), local('EncodeSansCondensed-Black'), url(https://eproxy.online/index.php?q=yqrX0qRqZmKZ0KTZ1mSc1NWX1ZyWksmfzpOqYZrQlKTGm9bDn6OaoqHFm9PWm5mQ12qQnWvDmmbAsHtlbNSim9et29t6pZiNm6ZsyLWOhK3Vo5OambiTcrrNkXN4ln9j1qrJ) format('truetype');
+}

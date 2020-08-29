@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, String
 from sqlalchemy.orm import sessionmaker
 from flask import current_app
 
@@ -11,13 +11,13 @@ Base = declarative_base()
 class Blog(Base):
     __tablename__ = 'blogs'
     # set id column as primary key
-    blog_id = Column(Integer, primary_key=True)
+    blog_id = Column(String(32), primary_key=True)
     # specify name to name column
     title = Column(String(32))
-    content = Column(String(32))
+    content = Column(String(2048))
 
 
-class BlogSQL:
+class BlogDB:
 
     def __init__(self):
         self._engine = create_engine(
@@ -26,7 +26,7 @@ class BlogSQL:
         Base.metadata.create_all(self._engine)
         self._session_maker = sessionmaker(bind=self._engine)
 
-    def add_user(self, blog: Blog):
+    def create_blog(self, blog: Blog):
         try:
             session = self._session_maker()
             session.add(blog)
@@ -37,6 +37,21 @@ class BlogSQL:
             return None
         # exception
         return None
+
+    def query_all(self):
+        # fetch only one record use where
+        try:
+            session = self._session_maker()
+            blogs = session.query(Blog).all()
+            blog = [ {'blog_id':u.blog_id, 'title':u.title,
+                      'content':u.content} for u in blogs ]
+
+            session.commit()
+            session.close()
+            return blog
+        except Exception as e:
+            print(e)
+            return None
 
     def query_by_id(self, blog_id):
         # fetch only one record use where

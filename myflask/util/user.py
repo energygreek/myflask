@@ -17,6 +17,9 @@ class User(UserMixin):
 
         return check_password_hash(self.password_hash, password)
 
+    def whoami(self):
+        return self.username
+
     def get_id(self):
         return self.id
 

@@ -21,7 +21,8 @@ def login():
         else:
             if user.verify_password(password):
                 login_user(user, remember=True) # create session
-                return redirect(request.args.get('next') or url_for('home.home'))
+                return redirect(request.args.get('next')
+                                or url_for('home.index'))
             else:
                 emsg = 'username or password wrong'
 
@@ -41,7 +42,7 @@ def register():
             emsg = 'username exist'
         else:
             create_user(user_name=user_name, password=password)
-            return redirect(url_for('home.home'))
+            return redirect(url_for('home.index'))
     return render_template('register.html', form=form, emsg=emsg)
 
 

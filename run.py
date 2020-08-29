@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_login import LoginManager
 from myflask.util.user import User
@@ -24,6 +24,10 @@ app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(action, url_prefix="/action")
 app.register_blueprint(blog, url_prefix="/blog")
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')
 
 @login_manager.user_loader # define function for getting user
 def load_user(user_id):
